@@ -64,9 +64,26 @@ public class AnalyticsCounter implements IAnalyticsCounter{
 
 	}
 	
+
+	/**
+	 * 
+	 *  la fonction execute pour créer une fichier de résultat
+	 * ***/
 	public void execute(ISymptomReader reader) {
+		//mettre dans une methode execute dans Analytics counter
+				//creer une liste qui contient tous les symptoms de la même façon que dans symptoms.txt
+		
+				List<String> liste = reader.GetSymptoms();
+				// creer une TreeMap qui trie automatiquement le contenu par ordre alphabétique pour avoir un symptome lié à une occurence 
+				Map<String,Integer> mapSymptoms = new TreeMap<String,Integer>();
+				
+				//remplir une Map qui contient les symptoms liés aux occurences
+				remplirMap(liste, mapSymptoms);
+				//remplir le Fichier result.txt .
+				remplirFichier("result.txt" , mapSymptoms);
+			
 
 		
-	}
+
 
 }
