@@ -41,18 +41,32 @@ public class AnalyticsCounter implements IAnalyticsCounter{
 
 	}
 
-	@Override
-	public void remplirMap(List<String> liste, Map<String, Integer> mapSymptoms) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
+	/*
+	 * remplir une Map qui contient les symptoms liés aux occurences
+	 * 
+	 */
+	public void remplirMap(List<String> liste , Map<String,Integer> mapSymptoms )
+
+	{
+		int i =0;
+		for(String element:liste)
+		{
+			i=1;
+			if (mapSymptoms.keySet().contains(element))
+				//incrémentez l' occurence du symptome
+				i = mapSymptoms.get(element) + 1;
+			//mettre à jour l'élément dans la Map avec la nouvelle occurence.
+			mapSymptoms.put(element,i);
+		}
+
+
+
+	}
+	
 	public void execute(ISymptomReader reader) {
-		// TODO Auto-generated method stub
+
 		
 	}
-
-
 
 }
